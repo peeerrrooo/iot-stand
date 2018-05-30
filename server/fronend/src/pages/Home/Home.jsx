@@ -5,7 +5,8 @@ import {Row, Col, Badge, Tooltip} from 'antd';
 import Block from 'components/Block';
 import {getTelemetry} from 'actions/ws/rpc';
 import Styles from 'styles/constants';
-import {root, vinContainer, rowContainer, itemContainer, itemBadge, noneData} from './main-home';
+import {root, vinContainer, rowContainer, label, itemContainer, itemBadge, noneData} from './main-home';
+import {scrollTo} from 'utils/scroll';
 
 @connect(store => {
     const {ws} = store;
@@ -28,6 +29,9 @@ class Home extends PureComponent {
             this.setState({
                 isLoading: false
             });
+            if (!_.isEmpty(props.telemetry)) {
+                scrollTo("end");
+            }
         }
     }
 
@@ -52,58 +56,54 @@ class Home extends PureComponent {
                             </Row>
                         </Block>
                         {_.map(telemetry, (t, index) => (
-                            <Row gutter={24} key={index} className={rowContainer}>
-                                <Col span={5}>
-                                    <Block title="Battery" isLoading={isLoading}>
-                                        <div className={itemContainer}>
+                            <div key={index} className={rowContainer}>
+                                <div className={label}>
+                                    <span>Created: </span>
+                                    <span>{t.created}</span>
+                                </div>
+                                <Row gutter={24}>
+                                    <Col span={6}>
+                                        <Block title="Battery" isLoading={isLoading}>
+                                            <div className={itemContainer}>
                                     <span className={itemBadge}>
                                         <Badge status="success"/>
                                     </span>
-                                            <span style={{color: Styles.colors.successColor}}>{t.battery}</span>
-                                        </div>
-                                    </Block>
-                                </Col>
-                                <Col span={5}>
-                                    <Block title="Total range" isLoading={isLoading}>
-                                        <div className={itemContainer}>
+                                                <span style={{color: Styles.colors.successColor}}>{t.battery}</span>
+                                            </div>
+                                        </Block>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Block title="Total range" isLoading={isLoading}>
+                                            <div className={itemContainer}>
                                     <span className={itemBadge}>
                                         <Badge status="processing"/>
                                     </span>
-                                            <span style={{color: Styles.colors.infoColor}}>{t.totalRange}</span>
-                                        </div>
-                                    </Block>
-                                </Col>
-                                <Col span={5}>
-                                    <Block title="Temperature" isLoading={isLoading}>
-                                        <div className={itemContainer}>
+                                                <span style={{color: Styles.colors.infoColor}}>{t.totalRange}</span>
+                                            </div>
+                                        </Block>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Block title="Temperature" isLoading={isLoading}>
+                                            <div className={itemContainer}>
                                     <span className={itemBadge}>
                                         <Badge status="warning"/>
                                     </span>
-                                            <span style={{color: Styles.colors.warningColor}}>{t.temperature}</span>
-                                        </div>
-                                    </Block>
-                                </Col>
-                                <Col span={5}>
-                                    <Block title="Mileage" isLoading={isLoading}>
-                                        <div className={itemContainer}>
+                                                <span style={{color: Styles.colors.warningColor}}>{t.temperature}</span>
+                                            </div>
+                                        </Block>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Block title="Mileage" isLoading={isLoading}>
+                                            <div className={itemContainer}>
                                     <span className={itemBadge}>
                                         <Badge status="processing"/>
                                     </span>
-                                            <span style={{color: Styles.colors.infoColor}}>{t.mileage}</span>
-                                        </div>
-                                    </Block>
-                                </Col>
-                                <Col span={4}>
-                                    <Block title="Created" isLoading={isLoading}>
-                                        <div className={itemContainer}>
-                                    <span className={itemBadge}>
-                                        <Badge status="default"/>
-                                    </span>
-                                            <span style={{color: Styles.colors.normalColor}}>{t.created}</span>
-                                        </div>
-                                    </Block>
-                                </Col>
-                            </Row>
+                                                <span style={{color: Styles.colors.infoColor}}>{t.mileage}</span>
+                                            </div>
+                                        </Block>
+                                    </Col>
+                                </Row>
+                            </div>
                         ))}
                     </Fragment> :
                     <div className={noneData}>

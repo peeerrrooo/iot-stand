@@ -1,6 +1,6 @@
 import {WS__TELEMETRY_GET} from './types';
 
-export function getTelemetry(telemetry) {
+export function setTelemetry(telemetry) {
     return {
         type: WS__TELEMETRY_GET,
         telemetry

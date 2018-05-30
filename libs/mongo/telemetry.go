@@ -42,3 +42,19 @@ func (self *MongoConnection) GetTelemetry() ([]schema.Telemetry, error) {
 
 	return result, nil
 }
+
+// Purge TELEMETRY.
+func (self *MongoConnection) PurgeTelemetry() (error) {
+	session := self.OriginalSession.Copy()
+	defer session.Close()
+
+	err := session.DB(self.DB).C(self.TelemetryCollection).DropCollection()
+	if err != nil {
+		logger.GetMongo().Error("Error PURGE TELEMETRY", map[string]interface{}{
+			"error": err,
+		})
+		return err
+	}
+
+	return nil
+}

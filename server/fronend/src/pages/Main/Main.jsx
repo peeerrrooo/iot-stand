@@ -1,16 +1,28 @@
+import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
-import {Layout, Row, Col, Button, Tooltip} from 'antd';
-import {hiJack} from 'actions/ws/rpc';
+import {Layout, Row, Col, Button, Tooltip, Modal} from 'antd';
+import {Element} from 'react-scroll';
+import {hiJack, removeTelemetry} from 'actions/ws/rpc';
 import {sendSuccess} from 'utils/notification';
 import Home from 'pages/Home';
-import {mainHeader, content, footer} from './main-main';
+import {mainHeader, buttonRemove, content, footer} from './main-main';
+import {connect} from "react-redux";
 
-const {Header, Footer, Content} = Layout;
+const {Header, Footer, Content} = Layout,
+    AntDConfirm = Modal.confirm;
 
 @withRouter
+@connect(store => {
+    const {ws} = store;
+    return {
+        telemetry: _.get(ws, 'telemetry', [])
+    };
+})
 class Main extends PureComponent {
     render() {
+        const {telemetry} = this.props;
+
         return (
             <Layout>
                 <Header className={mainHeader}>
@@ -19,13 +31,23 @@ class Main extends PureComponent {
                             <span>IoT Hub Service</span>
                         </Col>
                         <Col>
-                            <Tooltip title="Send 'Hi Jack"/>
+                            {!_.isEmpty(telemetry) &&
                             <Button
-                                icon="cloud-upload"
-                                onClick={this.handleClickHiJack}
+                                className={buttonRemove}
+                                icon="delete"
+                                onClick={this.handleClickPurge}
                             >
-                                Hi Jack!
+                                Clear all telemetry
                             </Button>
+                            }
+                            <Tooltip title="Send 'Hi Jack">
+                                <Button
+                                    icon="cloud-upload"
+                                    onClick={this.handleClickHiJack}
+                                >
+                                    Hi Jack!
+                                </Button>
+                            </Tooltip>
                         </Col>
                     </Row>
                 </Header>
@@ -36,6 +58,7 @@ class Main extends PureComponent {
                             <Redirect to="/home"/>
                         </Switch>
                     </Content>
+                    <Element name="end"/>
                     <Footer className={footer}>
                         © 2018 IoT Stand. All rights reserved.
                     </Footer>
@@ -45,8 +68,35 @@ class Main extends PureComponent {
     }
 
     handleClickHiJack = async () => {
-        await hiJack();
-        await sendSuccess('Hi Jack', 'Hi Jack activated!')
+        AntDConfirm({
+            title: `Are you sure active 'Hi Jack'?`,
+            okText: 'Yes',
+            okType: 'danger',
+            cancelText: 'Cancel',
+            async onOk() {
+                await hiJack();
+                await sendSuccess('Hi Jack', 'Hi Jack activated!')
+            },
+            onCancel() {
+
+            }
+        });
+    };
+
+    handleClickPurge = () => {
+        AntDConfirm({
+            title: `Are you sure delete all telemetry?`,
+            okText: 'Yes',
+            okType: 'danger',
+            cancelText: 'Cancel',
+            async onOk() {
+                await removeTelemetry();
+                await sendSuccess('All telemetry removed');
+            },
+            onCancel() {
+
+            }
+        });
     };
 }
 

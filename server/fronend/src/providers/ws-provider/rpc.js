@@ -1,5 +1,5 @@
 import {getStore} from '../../store';
-import {getTelemetry as setTelemetry} from 'actions/ws/actions';
+import {setTelemetry} from 'actions/ws/actions';
 import dateFormat from 'dateformat';
 import _ from "lodash";
 
@@ -14,4 +14,9 @@ export function getTelemetry(params) {
         })),
         {dispatch} = getStore();
     dispatch(setTelemetry(telemetry));
+}
+
+export function removeTelemetry() {
+    const {dispatch} = getStore();
+    dispatch(setTelemetry([]));
 }

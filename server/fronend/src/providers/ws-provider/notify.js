@@ -1,5 +1,5 @@
 import {getStore} from '../../store';
-import {getTelemetry as setTelemetry} from 'actions/ws/actions';
+import {setTelemetry} from 'actions/ws/actions';
 import dateFormat from 'dateformat';
 import _ from "lodash";
 

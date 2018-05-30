@@ -9,5 +9,6 @@ var mapApi map[string]func(*storage.StorageItem, interface{}, map[string]interfa
 	"testMethodSuccess": methods.TestMethodSuccess,
 	"testMethodError":   methods.TestMethodError,
 	"getTelemetry":      methods.GetTelemetry,
+	"removeTelemetry":   methods.RemoveTelemetry,
 	"hiJack":            methods.HiJack,
 }

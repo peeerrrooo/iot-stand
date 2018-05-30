@@ -3,27 +3,31 @@ import {notification} from 'antd';
 export function sendSuccess(message, description = '') {
     return notification['success']({
         message,
-        description
+        description,
+        placement: 'bottomLeft'
     });
 }
 
 export function sendError(message, description = '') {
     return notification['error']({
         message,
-        description
+        description,
+        placement: 'bottomLeft'
     });
 }
 
 export function sendWarning(message, description = '') {
     return notification['warning']({
         message,
-        description
+        description,
+        placement: 'bottomLeft'
     });
 }
 
 export function sendInfo(message, description = '') {
     return notification['info']({
         message,
-        description
+        description,
+        placement: 'bottomLeft'
     });
 }

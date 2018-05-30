@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import ConfigProvider from 'providers/config-provider';
 import UUIDv3 from 'uuid/v3';
-import {getTelemetry} from './rpc';
+import {getTelemetry, removeTelemetry} from './rpc';
 import {updateTelemetry} from './notify';
 
 class WSProvider {
@@ -15,7 +15,8 @@ class WSProvider {
     }
 
     methods = {
-        'getTelemetry': getTelemetry
+        'getTelemetry': getTelemetry,
+        'removeTelemetry': removeTelemetry
     };
 
     events = {

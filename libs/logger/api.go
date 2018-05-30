@@ -6,6 +6,7 @@ var logger_nats *Logger
 var logger_ws *Logger
 var logger_mqtt_service *Logger
 var logger_cloud *Logger
+var logger_telemetry *Logger
 var logger_mqtt *Logger
 var logger_mongo *Logger
 
@@ -47,6 +48,14 @@ func GetCloud() *Logger {
 		logger_cloud = NewLogger("CLOUD")
 	}
 	return logger_cloud
+}
+
+// Return TELEMETRY Logger.
+func GetTelemetry() *Logger {
+	if logger_telemetry == nil {
+		logger_telemetry = NewLogger("TELEMETRY")
+	}
+	return logger_telemetry
 }
 
 // Return MQTT Logger.

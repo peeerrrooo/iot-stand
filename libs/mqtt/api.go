@@ -38,14 +38,14 @@ func callApi(mapApi MapApi, message string) {
 			if okMethodApi {
 				resultParam, okJsonParam := param["param"]
 				if okJsonParam {
-					mapApi[method].(func(interface{}))(resultParam)
-					logger.GetMQTT().Info("Success call methid", map[string]interface{}{
+					go mapApi[method].(func(interface{}))(resultParam)
+					logger.GetMQTT().Info("Success call method", map[string]interface{}{
 						"method": method,
 					})
 					return
 				} else {
-					mapApi[method].(func(interface{}))(nil)
-					logger.GetMQTT().Info("Success call methid", map[string]interface{}{
+					go mapApi[method].(func(interface{}))(nil)
+					logger.GetMQTT().Info("Success call method", map[string]interface{}{
 						"method": method,
 					})
 					return

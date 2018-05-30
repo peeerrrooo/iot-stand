@@ -12,11 +12,18 @@
 }
 
 .row-container {
-  margin-bottom: 1rem !important;
+  overflow: hidden;
+  min-height: 10rem;
+  margin-bottom: 1rem;
   animation-name: row-in;
   animation-fill-mode: both;
   animation-duration: .3s;
   animation-timing-function: ease-in;
+
+  .label {
+    margin-left: 2rem;
+    margin-bottom: .5rem;
+  }
 
   .item-container {
     margin-left: .5rem;

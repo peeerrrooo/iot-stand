@@ -67,13 +67,13 @@ func (self *Subscribe) run() {
 
 		data, dataErr := json_codec.GetJson("data", receive)
 		if dataErr != nil {
-			method(nil)
+			go method(nil)
 			logger.GetNats().Info("Success call method", map[string]interface{}{
 				"service": self.Service,
 				"method":  methodField,
 			})
 		} else {
-			method(data)
+			go method(data)
 			logger.GetNats().Info("Success call method", map[string]interface{}{
 				"service": self.Service,
 				"method":  methodField,
