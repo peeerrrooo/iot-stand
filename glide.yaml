@@ -1,0 +1,12 @@
+package: ismart
+import:
+- package: github.com/spf13/viper
+- package: github.com/Sirupsen/logrus
+- package: github.com/x-cray/logrus-prefixed-formatter
+- package: github.com/gin-gonic/gin
+- package: github.com/toorop/gin-logrus
+- package: github.com/gorilla/websocket
+- package: github.com/satori/go.uuid
+- package: github.com/nats-io/go-nats
+- package: gopkg.in/telegram-bot-api.v4
+- package: gopkg.in/mgo.v2
