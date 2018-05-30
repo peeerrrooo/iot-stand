@@ -37,6 +37,20 @@ func GetConnection() *nats_controller.Conn {
 	return connection
 }
 
+// Send data to any NATS API service.
+func CallMethod(service string, method string, data map[string]interface{}) {
+	if data != nil {
+		Publish(fmt.Sprintf("%s-service", service), map[string]interface{}{
+			"method": method,
+			"data":   data,
+		})
+	} else {
+		Publish(fmt.Sprintf("%s-service", service), map[string]interface{}{
+			"method": method,
+		})
+	}
+}
+
 // Publish to NATS server topic.
 func Publish(topic string, data map[string]interface{}) {
 	nc := GetConnection()
@@ -63,6 +77,5 @@ func Publish(topic string, data map[string]interface{}) {
 	}
 	logger.GetNats().Info("Success send PUBLISH", map[string]interface{}{
 		"topic": topic,
-		"data":  data,
 	})
 }

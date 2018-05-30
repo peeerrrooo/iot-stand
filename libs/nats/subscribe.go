@@ -68,18 +68,18 @@ func (self *Subscribe) run() {
 		data, dataErr := json_codec.GetJson("data", receive)
 		if dataErr != nil {
 			method(nil)
+			logger.GetNats().Info("Success call method", map[string]interface{}{
+				"service": self.Service,
+				"method":  methodField,
+			})
 		} else {
 			method(data)
+			logger.GetNats().Info("Success call method", map[string]interface{}{
+				"service": self.Service,
+				"method":  methodField,
+			})
 		}
 	}
-}
-
-// Send data to any NATS API service.
-func (self *Subscribe) Send(service string, method string, data map[string]interface{}) {
-	Publish(fmt.Sprintf("%s-service", service), map[string]interface{}{
-		"data":   data,
-		"method": method,
-	})
 }
 
 // Init subscribe.

@@ -34,6 +34,17 @@ func initConfig() error {
 	viper.SetDefault("mongo_pass", "")
 	viper.SetDefault("mongo_port", 27017)
 
+	// MQTT.
+	viper.BindEnv("mqtt_host")
+	viper.BindEnv("mqtt_port")
+	viper.BindEnv("mqtt_sub_topic")
+	viper.BindEnv("mqtt_pub_topic")
+	viper.SetDefault("mqtt_host", "localhost")
+	viper.SetDefault("mqtt_port", 1883)
+	viper.SetDefault("mqtt_sub_topic", "server")
+	viper.SetDefault("mqtt_pub_topic", "device")
+
+
 	// Game service.
 	viper.BindEnv("ws_service_port")
 	viper.SetDefault("ws_service_port", 9120)

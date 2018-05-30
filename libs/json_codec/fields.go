@@ -14,6 +14,19 @@ func GetAny(field string, fields map[string]interface{}) (interface{}, error) {
 	return fieldPure, nil
 }
 
+// Get and check isExist field which has INT64 type.
+func GetInt64(field string, fields map[string]interface{}) (int64, error) {
+	fieldPure, okPureField := fields[field]
+	if !okPureField {
+		return 0, errors.New(fmt.Sprintf("Cannot get INT64 field '%s'", field))
+	}
+	fieldValueFloat64, okFieldValue := fieldPure.(float64)
+	if !okFieldValue {
+		return 0, errors.New(fmt.Sprintf("Cannot convert field '%s' to INT64", field))
+	}
+	return int64(fieldValueFloat64), nil
+}
+
 // Get and check isExist field which has STRING type.
 func GetString(field string, fields map[string]interface{}) (string, error) {
 	fieldPure, okPureField := fields[field]

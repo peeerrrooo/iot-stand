@@ -1,6 +1,10 @@
-hash: c245a4ff5ef0a7e06af7bec14add971381299a3a64fd773fc514bec961d0a75c
-updated: 2018-05-30T11:31:00.939606521+07:00
+hash: a23015b8cf86b2e9e04cb81791dd9b02289d29714afd175cfdbc3aa89b8aed10
+updated: 2018-05-30T14:41:56.756015141+07:00
 imports:
+- name: github.com/eclipse/paho.mqtt.golang
+  version: 9ec68b7894ac4cd48fc9126e910e571d50eb5d9c
+  subpackages:
+  - packets
 - name: github.com/fsnotify/fsnotify
   version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
 - name: github.com/gin-contrib/sse
@@ -80,6 +84,12 @@ imports:
   version: 1875d0a70c90e57f11972aefd42276df65e895b9
   subpackages:
   - ssh/terminal
+- name: golang.org/x/net
+  version: 89e543239a64caf31d3a6865872ea120b41446df
+  subpackages:
+  - internal/socks
+  - proxy
+  - websocket
 - name: golang.org/x/sys
   version: 3dbebcf8efb6a5011a60c2b4591c1022a759af8a
   subpackages:

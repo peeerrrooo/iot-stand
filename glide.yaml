@@ -10,3 +10,4 @@ import:
 - package: github.com/nats-io/go-nats
 - package: gopkg.in/telegram-bot-api.v4
 - package: gopkg.in/mgo.v2
+- package: github.com/eclipse/paho.mqtt.golang

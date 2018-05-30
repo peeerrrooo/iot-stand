@@ -1,2 +1,10 @@
 /.idea
 /vendor
+/ws-service
+/cmd/server/ws-service
+/mqtt-service
+/cmd/server/mqtt-service
+/cloud-service
+/cmd/device/cloud-service
+/telemetry-service
+/cmd/device/telemetry-service
