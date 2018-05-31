@@ -1,0 +1,34 @@
+.root {
+  position: relative;
+  cursor: default !important;
+}
+
+.card-container {
+  transition: all .3s ease-in-out;
+  opacity: 1;
+}
+
+.card-loader {
+  opacity: .5;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spin-loader {
+  display: block;
+}
+
+.title-count {
+  margin-top: -1rem !important;
+  margin-left: .2rem !important;
+}

@@ -54,18 +54,22 @@ void NatsClient::run(Nats::Client* client) {
 }
 
 void NatsClient::Publish(QString service, QString method) {
-    auto ob = QJsonObject();
-    ob["method"] = method;
-    auto doc = QJsonDocument(ob);
-    m_client->publish(QString("%1-service").arg(service), QString(doc.toJson()));
-    Logger::Info("HMI", QString("Send NATS to method: %1").arg(method));
+    if (m_client != nullptr) {
+        auto ob = QJsonObject();
+        ob["method"] = method;
+        auto doc = QJsonDocument(ob);
+        m_client->publish(QString("%1-service").arg(service), QString(doc.toJson()));
+        Logger::Info("HMI", QString("Send NATS to method: %1").arg(method));
+    }
 }
 
 void NatsClient::Publish(QString service, QString method, QJsonValue data) {
-    auto ob = QJsonObject();
-    ob["method"] = method;
-    ob["data"] = data;
-    auto doc = QJsonDocument(ob);
-    m_client->publish(QString("%1-service").arg(service), QString(doc.toJson()));
-    Logger::Info("HMI", QString("Send NATS to method: %1").arg(method));
+    if (m_client != nullptr) {
+        auto ob = QJsonObject();
+        ob["method"] = method;
+        ob["data"] = data;
+        auto doc = QJsonDocument(ob);
+        m_client->publish(QString("%1-service").arg(service), QString(doc.toJson()));
+        Logger::Info("HMI", QString("Send NATS to method: %1").arg(method));
+    }
 }

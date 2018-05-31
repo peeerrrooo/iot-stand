@@ -1,0 +1,11 @@
+---
+- hosts: all
+  user: root
+  tasks:
+    - import_tasks: prepare/prepare_dir.yaml
+    - import_tasks: db/nats.yaml
+    - import_tasks: db/mongo.yaml
+    - import_tasks: db/mosquitto.yaml
+    - import_tasks: services/ws.yaml
+    - import_tasks: services/mqtt.yaml
+    - import_tasks: services/nginx.yaml

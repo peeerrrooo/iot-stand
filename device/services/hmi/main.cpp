@@ -4,9 +4,11 @@
 #include <QQmlEngine>
 #include <QJSEngine>
 #include <QJSValue>
+#include <QTimer>
 #include "natsprovider.h"
 #include "hmi_provider.h"
 #include "nats_api.h"
+#include "check_network.h"
 
 static QObject *hmi_provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
     Q_UNUSED(engine)
@@ -32,10 +34,15 @@ int main(int argc, char *argv[])
         NatsClient::init(&client);
         NatsProvider::init("hmi", &client, getNatsApiMap());
     });
-    QObject::connect(&client, &Nats::Client::error, [](const QString &error) {
+    QObject::connect(&client, &Nats::Client::error, [&client](const QString &error) {
         Logger::Info("NATS", QString("Error connect to NATS: '%1'").arg(error));
     });
-    client.connect("127.0.0.1", 4222);
+
+    QTimer::singleShot(1500, [&client]() {
+        client.connect("127.0.0.1", 4222);
+        auto checkNetwork = new CheckNetwork();
+        checkNetwork->start();
+    });
 
     // Init HMI provider.
     qmlRegisterSingletonType<HmiProvider>("iot.hmi.data", 1, 0, "Api", hmi_provider);

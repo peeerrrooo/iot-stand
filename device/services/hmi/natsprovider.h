@@ -39,7 +39,7 @@ public:
     static NatsClient* intance();
 
 private:
-    Nats::Client* m_client;
+    Nats::Client* m_client = nullptr;
     void run(Nats::Client* client);
 };
 

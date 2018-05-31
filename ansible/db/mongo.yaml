@@ -1,0 +1,5 @@
+---
+  - name: Start MONGO
+    command: docker-compose up -d --force-recreate --no-deps mongo
+    args:
+      chdir: /server_side_deploy

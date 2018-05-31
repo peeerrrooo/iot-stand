@@ -17,7 +17,8 @@ SOURCES += \
     logger.cpp \
     natsprovider.cpp \
     nats_api.cpp \
-    hmi_provider.cpp
+    hmi_provider.cpp \
+    check_network.cpp
 
 RESOURCES += qml.qrc
 
@@ -37,4 +38,5 @@ HEADERS += \
     natsprovider.h \
     natsclient.h \
     nats_api.h \
-    hmi_provider.h
+    hmi_provider.h \
+    check_network.h

@@ -8,7 +8,7 @@ import (
 /**
  * Send MQTT message.
  */
-func Subscribe(reconnectInterval int, mapApi MapApi) interface{} {
+func Subscribe(reconnectInterval int, mapApi MapApi) error {
 	logger.GetMQTT().Info("Success subscribe")
 
 	for {

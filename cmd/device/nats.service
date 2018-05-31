@@ -1,0 +1,11 @@
+[Unit]
+Description=NATS service
+
+[Service]
+Type=simple
+ExecStart=/device_deploy/nats
+Restart=always
+WorkingDirectory=/device_deploy
+
+[Install]
+WantedBy=multi-user.target

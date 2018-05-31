@@ -1,0 +1,12 @@
+[Unit]
+Description=IoT TELEMETRY service
+After=nats.service
+
+[Service]
+Type=simple
+ExecStart=/device_deploy/telemetry.sh
+Restart=always
+WorkingDirectory=/device_deploy
+
+[Install]
+WantedBy=multi-user.target

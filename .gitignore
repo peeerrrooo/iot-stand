@@ -8,3 +8,6 @@
 /cmd/device/cloud-service
 /telemetry-service
 /cmd/device/telemetry-service
+
+/server_side_deploy
+/device_deploy

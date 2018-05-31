@@ -1,0 +1,5 @@
+---
+  - name: Start MOSQUITTO
+    command: docker-compose up -d --force-recreate --no-deps mosquitto
+    args:
+      chdir: /server_side_deploy

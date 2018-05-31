@@ -1,0 +1,11 @@
+FROM golang
+
+WORKDIR /opt
+
+COPY mqtt-service .
+
+RUN chmod +x mqtt-service
+
+EXPOSE 9120
+
+CMD ["/opt/mqtt-service"]

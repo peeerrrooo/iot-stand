@@ -7,6 +7,7 @@
 class HmiProvider : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool isNetwork READ getIsNetwork WRITE setIsNetwork NOTIFY networkChanged)
     Q_PROPERTY(bool isHiJack READ getIsHiJack WRITE setIsHiJack NOTIFY hiJackChanged)
 
 public:
@@ -16,13 +17,18 @@ public:
 
     Q_INVOKABLE void updateTelemetry();
 
+    bool getIsNetwork();
+    void setIsNetwork(const bool network);
+
     bool getIsHiJack();
     void setIsHiJack(const bool hiJack);
 
 signals:
+    void networkChanged();
     void hiJackChanged();
 
 private:
+    bool m_isNetwork = false;
     bool m_hiJack = false;
 };
 

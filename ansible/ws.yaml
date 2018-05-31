@@ -1,0 +1,5 @@
+---
+- hosts: all
+  user: root
+  tasks:
+    - import_tasks: services/ws.yaml

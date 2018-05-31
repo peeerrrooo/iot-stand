@@ -25,3 +25,12 @@ void HmiProvider::setIsHiJack(const bool hiJack) {
     m_hiJack = hiJack;
     emit hiJackChanged();
 }
+
+bool HmiProvider::getIsNetwork() {
+    return m_isNetwork;
+}
+
+void HmiProvider::setIsNetwork(const bool network) {
+    m_isNetwork = network;
+    emit networkChanged();
+}

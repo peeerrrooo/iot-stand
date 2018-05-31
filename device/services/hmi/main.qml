@@ -12,11 +12,32 @@ Window {
     Rectangle {
         anchors.fill: parent
         id: root
-        color: "#37474F"
+        color: Api.isNetwork ? "#37474F" : "#00ACC1"
+
+        Item {
+            width: parent.width * 0.5
+            height: parent.height * 0.3
+            visible: !Api.isNetwork
+
+            anchors {
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
+            }
+
+            Text {
+                font.pointSize: root.width * 0.02
+                text: "Connecting to network..."
+                color: "#fff"
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    horizontalCenter: parent.horizontalCenter
+                }
+            }
+        }
 
         Rectangle {
             id: telemetryContainer
-            visible: !timerJack.running
+            visible: !timerJack.running && Api.isNetwork
             width: parent.width * 0.5
             height: parent.height * 0.3
             color: telemetryButtonArea.pressed ? "#00796B" : "#009688"

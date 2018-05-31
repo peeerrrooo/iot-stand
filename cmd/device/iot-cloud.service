@@ -1,0 +1,15 @@
+[Unit]
+Description=IoT CLOUD service
+After=nats.service
+
+[Service]
+Type=simple
+Environment=MQTT_HOST=188.166.150.76
+Environment=MQTT_SUB_TOPIC=device
+Environment=MQTT_PUB_TOPIC=server
+ExecStart=/device_deploy/cloud.sh
+Restart=always
+WorkingDirectory=/device_deploy
+
+[Install]
+WantedBy=multi-user.target

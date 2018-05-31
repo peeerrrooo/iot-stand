@@ -1,0 +1,5 @@
+---
+  - name: Send DIR
+    copy:
+      src: ../server_side_deploy
+      dest: /

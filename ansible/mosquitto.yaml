@@ -1,0 +1,5 @@
+---
+- hosts: all
+  user: root
+  tasks:
+    - import_tasks: db/mosquitto.yaml
