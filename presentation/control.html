@@ -6,7 +6,7 @@
     <title>Микросервисы. Бракк Д.О.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
     <link rel="stylesheet" href="lib/css/zenburn.css">
     <script>
         var link = document.createElement('link');
@@ -18,145 +18,70 @@
 </head>
 <body>
 
-<div class="reveal">
+<div
+        class="reveal"
+        style="background: url(img/bacgkground.jpg) no-repeat; background-size: 100% 100%"
+>
     <div class="slides">
         <section>
-            <h3 style="color: #B3E5FC">
-                ИССЛЕДОВАНИЕ И ПРИМЕНЕНИЕ МИКРОСЕРВИСНОЙ АРХИТЕКТУРЫ В СФЕРЕ AUTOMOTIVE
-            </h3>
-            <p style="text-align: right">
-                <small>
-                    Бракк Д.О.
-                </small>
+            <h4 style="color: #795548">
+                ИССЛЕДОВАНИЕ И ПРИМЕНЕНИЕ МИКРОСЕРВИСНОЙ АРХИТЕКТУРЫ В СФЕРЕ Automotive
+            </h4>
+            <p style="text-align: left; transform: translateX(63.5%)">
+                <small>Руководитель: Е.М. Гриценко</small>
+                <br>
+                <small>Студент: Д.О. Бракк</small>
             </p>
         </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                AUTOMOTIVE SOFTWARE
-            </h3>
-            <ul>
-                <li>сложные комплексные бортовые системы</li>
-                <li>высокие требования к отказоустойчивости</li>
-                <li>неоднородный характер подсистем</li>
-                <li>высокая стоимость разработки и поддержки</li>
-                <li>закрытый исходный код</li>
-                <li>закрытая инфраструктура</li>
-            </ul>
-        </section>
-        <section>
-            <img src="img/tesla1.jpg" alt="">
-        </section>
-        <section>
-            <img src="img/tesla2.jpg" alt="">
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Проблемы
-            </h3>
-            <ul>
-                <li>отсутсвие стандартов архитектуры</li>
-                <li>закрытый исходный код</li>
-                <li>сложно применить мультикомандный подход</li>
-            </ul>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
+        <section style="text-align: left">
+            <h4 style="color: #795548">
                 Актуальность работы
-            </h3>
-            <p>
+            </h4>
+            <p style="transform: translateX(10%)">
                 Запрос на исследование и создание прозрачной, эффективной и доступной архитектуры программного
                 обеспечения для бортовых компьютеров всё ещё актуален.
             </p>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
+            <h4 style="color: #795548">
                 Цель работы
-            </h3>
-            <ol>
+            </h4>
+            <ul style="transform: translateX(10%); list-style: square">
                 <li>
                     исследование концепции микросервисной архитектуры в сфере автомобильной промышленности
                 </li>
                 <li>
                     создание базового прототипа программного решения на основе данной концепции
                 </li>
-            </ol>
+            </ul>
         </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Научная новиза работы
+        <section style="text-align: left">
+            <h3 style="color: #795548">
+                Научная новизна работы
             </h3>
-            <p>концепция архитектуры, которая позволит</p>
-            <ul>
+            <p>концепция архитектуры, которая позволит:</p>
+            <ul style="list-style: square">
                 <li>уменьшить скорость разработки</li>
                 <li>увеличить отказоустойчивость</li>
                 <li>предоставить конечную прозрачную архитектуру организации логических компонентов</li>
             </ul>
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                Встраиваемые системы в Automotive
-            </h3>
-            <ul>
-                <li>QNX</li>
-                <li>Android</li>
-                <li>Linux Embedded</li>
-            </ul>
+            <p>Бортовой компьютер марки Tesla</p>
+            <img src="img/tesla1.jpg" style="max-width: 85%; max-height: 85%">
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                Yocto Linux
-            </h3>
-            <ul>
-                <li>концепция слоёв</li>
-                <li>независимость от платформы</li>
-                <li>высокоуровневые инструменты сборки</li>
-            </ul>
+            <p>Бортовой компьютер марки Tesla</p>
+            <img src="img/tesla2.jpg" style="max-width: 85%; max-height: 85%">
         </section>
         <section>
             <p>Схема процесса сборки Yocto Linux</p>
             <img src="img/yocto.png" alt="">
         </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Понятие процесса
-            </h3>
-            <ul>
-                <li>программа</li>
-                <li>сервис</li>
-                <li>микросервис</li>
-            </ul>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Микросервисная архитектура
-            </h3>
-            <ul>
-                <li>изоляция зоны ответственности</li>
-                <li>инкапсуляция кодовой базы</li>
-                <li>однородный характер разработки</li>
-            </ul>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Шина сообщений
-            </h3>
-            <p>Единый интерфейс взаимодействия микросервисов.</p>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Шина сообщений
-            </h3>
-            <ul>
-                <li>D-Bus</li>
-                <li>NATS</li>
-            </ul>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
+        <section style="text-align: left">
+            <h3 style="color: #795548">
                 Базовые подсистемы бортового компьютера
             </h3>
-            <ul>
-                <li>HMI</li>
+            <ul style="list-style: square; transform: translateX(10%)">
+                <li>человеко-машинный интерфейс / HMI</li>
                 <li>
                     подсистема работы с датчиками и механическими системами автомобиля
                 </li>
@@ -166,10 +91,6 @@
                 <li>
                     подсистема реагирования на окружающую среду
                 </li>
-            </ul>
-        </section>
-        <section>
-            <ul>
                 <li>
                     подсистема блокировки и разблокировки
                 </li>
@@ -194,82 +115,70 @@
             <img src="img/services3.png" alt="">
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                Automotive и Интернет вещей
-            </h3>
+            <p>Уровни протокола MQTT</p>
+            <img src="img/mqtt1.png" alt="">
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                MQTT
-            </h3>
-            <ul>
-                <li>двунаправленная связь: Pub/Sub</li>
-                <li>тонкий клиент</li>
-                <li>быстрее Websocket</li>
-                <li>минимальная нагрузка метаданных пакета</li>
-            </ul>
+            <p>Структура протокола MQTT</p>
+            <img src="img/mqtt2.png" alt="">
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                Прототип предложенной концепции
-            </h3>
+            <p>Производительность шины сообщений NATS</p>
+            <img src="img/nats.png" alt="">
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                Микросервисы бортового компьютера
-            </h3>
-            <ul>
-                <li>HMI</li>
-                <li>Сервис получения телеметрии</li>
-                <li>Сервис шлюза с IoT на базе MQTT протокола</li>
-            </ul>
+            <p>Qt Creator</p>
+            <img src="img/qt.png" alt="">
         </section>
         <section>
-            <h3 style="color: #B3E5FC">
-                Human Machine Interface
-            </h3>
-            <ul>
-                <li>C++14</li>
-                <li>Qt Quick</li>
-                <li>Boot2Qt Yocto Layer</li>
-                <li>NATS C++ Library</li>
-            </ul>
+            <p>Qt Framework</p>
+            <img src="img/qt2.png" alt="">
         </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Сервис получения телеметрии
-            </h3>
-            <ul>
-                <li>Golang ARM</li>
-                <li>Golang NATS Library</li>
-            </ul>
+        <section style="text-align: left">
+            <h3 style="color: #795548">Прототип бортового компьютера</h3>
+            <div style="font-size: 1.5rem">
+                <p style="font-weight: 700">
+                    Human Machine Interface
+                </p>
+                <ul style="list-style: square; transform: translateX(10%);">
+                    <li>Qt Framework</li>
+                    <li>Qt Quick</li>
+                    <li>C++14</li>
+                    <li>C++ Nats Library</li>
+                </ul>
+                <p style="font-weight: 700">
+                    Сервис получения телеметрии
+                </p>
+                <ul style="list-style: square; transform: translateX(10%);">
+                    <li>Golang ARM</li>
+                    <li>Golang NATS Library</li>
+                </ul>
+                <p style="font-weight: 700">
+                    Сервис шлюза работы с интернетом вещей на базе MQTT протокола
+                </p>
+                <ul style="list-style: square; transform: translateX(10%);">
+                    <li>Golang ARM</li>
+                    <li>Golang NATS Library</li>
+                    <li>Eclipse MQTT Paho Implementation</li>
+                </ul>
+            </div>
         </section>
-        <section>
-            <h3 style="color: #B3E5FC">
-                Сервис шлюза работы с интернетом вещей на базе MQTT протокола
-            </h3>
-            <ul>
-                <li>Golang ARM</li>
-                <li>Golang NATS Library</li>
-                <li>Eclipse MQTT Paho Implementation</li>
-            </ul>
-        </section>
-        <section>
-            <h3 style="color: #B3E5FC">
+        <section style="text-align: left">
+            <h3 style="color: #795548">
                 Прототип облака
             </h3>
-            <ul>
+            <ul style="list-style: square; transform: translateX(10%);">
                 <li>Websocket server: Golang</li>
                 <li>MQTT client: Golang</li>
                 <li>NATS</li>
                 <li>Front-end: React.js/Redux.js</li>
             </ul>
         </section>
-        <section>
-            <h3 style="color: #B3E5FC">
+        <section style="text-align: left">
+            <h3 style="color: #795548">
                 Результаты работы
             </h3>
-            <ul>
+            <ul style="list-style: square; transform: translateX(10%);">
                 <li>
                     была сформулирована основная концепция архитектуры микросервисов
                 </li>
@@ -281,6 +190,12 @@
                     рабочий прототип бортового компьютера на базе микросервисов
                 </li>
             </ul>
+        </section>
+        <section style="text-align: left">
+            <h3 style="color: #795548">
+                Исходный код
+            </h3>
+            <a href="https://github.com/peeerrrooo/iot-stand">https://github.com/peeerrrooo/iot-stand</a>
         </section>
     </div>
 </div>
@@ -327,8 +242,8 @@
             {src: 'plugin/zoom-js/zoom.js', async: true},
             {src: 'plugin/notes/notes.js', async: true},
 
-            { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
-            { src: 'plugin/multiplex/master.js', async: true }
+            {src: '//cdn.socket.io/socket.io-1.3.5.js', async: true},
+            {src: 'plugin/multiplex/master.js', async: true}
         ]
     });
 </script>
