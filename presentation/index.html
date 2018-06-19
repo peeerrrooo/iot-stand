@@ -23,7 +23,7 @@
     <div class="slides">
         <section>
             <h4 style="color: #795548">
-                ИССЛЕДОВАНИЕ И ПРИМЕНЕНИЕ МИКРОСЕРВИСНОЙ АРХИТЕКТУРЫ В СФЕРЕ Automotive
+                ИССЛЕДОВАНИЕ И ПРИМЕНЕНИЕ КОНЦЕПЦИИ МИКРОСЕРВИСНОЙ АРХИТЕКТУРЫ В СФЕРЕ Automotive
             </h4>
             <p style="text-align: left; transform: translateX(63.5%)">
                 <small>Руководитель: Е.М. Гриценко</small>
@@ -200,6 +200,13 @@
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
+<script>
+    let link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 <script>
     Reveal.configure({slideNumber: 'c/t'});
     Reveal.initialize({
