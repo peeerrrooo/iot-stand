@@ -96,4 +96,4 @@ If you want analyze server-side code, see folder ```server/service/**```.
 
 If you want to analyze front-end code, see folder ```server/frontend/**```.
 
-```Websocket service``` and ```MQTT service``` communicate with NATS pub/sub, provides hight level abstract RPC API and can be replicated with ```Kubernetes```|```Mesos```|```Swarm``.
+```Websocket service``` and ```MQTT service``` communicate with NATS pub/sub, provides hight level abstract RPC API and can be replicated with ```Kubernetes```|```Mesos```|```Swarm```.
