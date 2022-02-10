@@ -33,7 +33,7 @@
     "moment": "^2.22.1",
     "nconf": "^0.8.4",
     "nconf-yaml": "^1.0.2",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "particles.js": "^2.0.0",
     "postcss": "^6.0.22",
     "postcss-loader": "^2.1.5",
